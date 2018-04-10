@@ -1,16 +1,13 @@
 <template>
+<div>
+<div>
 <div class="container">  
-    <div id="myModal" class="modal" name="initial">
+    <div id="myModal3" class="modal" name="initial">
         <div class="modal-content">
             <span v-on:click="onClickClose" class="close">&times;</span>
-            <h2>Runs Distribution</h2>
+            <h2>Scoring Percentage</h2>
             <center>
-                <Chart
-                    v-for="(id, index) in id_array"
-                    :id="id" 
-                    :key="index"
-                    v-if="id === totalCompetetions()">
-                </Chart>
+                <canvas id="myChart3" width="200px" height="200px" style="width: 200px; height:200px;"></canvas>
             </center>
             <br>
             <div>
@@ -22,36 +19,33 @@
         </div>
     </div> 
 </div>
+</div>
+</div>
 </template>
 
 <script>
-//import chartData from '../chartdata.js';
-import Chart from './Charts.vue';
+import chartData from '../chartdata.js';
+//import Chart from './Charts.vue';
 
 export default {
     data() {
         return {
-        //    chartData : chartData[0]
-            id_array : [0, 1, 2, 3, 4]
+           chartData : chartData[3]
+        //    id_array : [0, 1, 2, 3, 4]
         }
     },
-    props: ["id"],
     methods: {
         onClickClose() {
-            var modal = document.getElementById('myModal');
+            var modal = document.getElementById('myModal3');
 
             modal.style.display = "none";
-        },
-        onClickOpen() {
-            var modal = document.getElementById('myModal');
-            modal.style.display = "block";
         },
         totalCompetetions () {
             console.log("heee",this.id);
             return this.id;
-        }
+        },
         
-    /*    createChart(chartId, chartData) {
+        createChart(chartId, chartData) {
             console.log("id: ", chartId);
             console.log("data: ", chartData);
             const ctx = document.getElementById(chartId);
@@ -60,19 +54,11 @@ export default {
                 data: chartData.data,
                 options: chartData.options,
             });
-        }*/
+        }
     },
     mounted() {
-        //this.createChart('myChart', this.chartData)
-        this.totalCompetetions ();
-    },
-    components : {
-        Chart
-    },
-    
-        computed: {
-            
-        }   
+        this.createChart('myChart3', this.chartData) 
+    }   
 }
 </script>
 

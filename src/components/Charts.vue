@@ -14,7 +14,8 @@ export default {
     props: ['id'],
     methods: {
         createChart(chartId, chartData, id) {
-            console.log("id: ", chartId);
+            console.log("in chart");
+            console.log("id: ", id);
             console.log("data: ", chartData[id]);
             const ctx = document.getElementById(chartId);
             const myChart = new Chart(ctx, {

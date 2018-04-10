@@ -1,5 +1,7 @@
 body {
-    background: #392d6e;
+    background-image: url("./BCCI.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     text-align: center;
 }
 
