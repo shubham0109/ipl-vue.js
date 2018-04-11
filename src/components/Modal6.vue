@@ -4,18 +4,22 @@
 <div class="container">  
     <div id="myModal6" class="modal" name="initial">
         <div class="modal-content">
-            <span v-on:click="onClickClose" class="close">&times;</span>
-            <h2>Country Percentage</h2>
+            
+            <h2>It goes down the wire</h2>
             <center>
-                <canvas id="myChart6" width="300px" height="300px" style="width: 300px; height:300px;"></canvas>
+                <canvas id="myChart6" width="500px" height="300px" style="width: 500px; height:300px;"></canvas>
             </center>
             <br>
             <div>
-                <ul>
-                    <li>58% of the runs scored are in boundaries</li>
-                    <li>It's one of the highest boundary percentage of any league. </li>
-                </ul>
+                
+                    <li>More than 80% of the games end in the last two overs</li>
+                    <li>It's rare for a game to end before 15th over </li>
+                    <li>Infact most of the knock-outs and finals go down the wire</li>
+                    <li>IPL truly is a clash of heavyweights</li>
+                
             </div>
+            <br />
+            <span v-on:click="onClickClose" class="close">close</span>
         </div>
     </div> 
 </div>
@@ -25,29 +29,22 @@
 
 <script>
 import chartData from '../chartdata.js';
-//import Chart from './Charts.vue';
+
 
 export default {
     data() {
         return {
            chartData : chartData[6]
-        //    id_array : [0, 1, 2, 3, 4]
+        
         }
     },
     methods: {
         onClickClose() {
             var modal = document.getElementById('myModal6');
-
             modal.style.display = "none";
-        },
-        totalCompetetions () {
-            console.log("heee",this.id);
-            return this.id;
         },
         
         createChart(chartId, chartData) {
-            console.log("id: ", chartId);
-            console.log("data: ", chartData);
             const ctx = document.getElementById(chartId);
             const myChart = new Chart(ctx, {
                 type: chartData.type,

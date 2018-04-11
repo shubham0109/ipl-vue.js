@@ -4,18 +4,20 @@
 <div class="container">  
     <div id="myModal7" class="modal" name="initial">
         <div class="modal-content">
-            <span v-on:click="onClickClose" class="close">&times;</span>
-            <h2>Country Percentage</h2>
+            
+            <h2>All Round Scoring</h2>
             <center>
                 <canvas id="myChart7" width="300px" height="300px" style="width: 300px; height:300px;"></canvas>
             </center>
             <br>
             <div>
-                <ul>
-                    <li>58% of the runs scored are in boundaries</li>
-                    <li>It's one of the highest boundary percentage of any league. </li>
-                </ul>
+                
+                    <li>6000 sixes have been hit till now</li>
+                    <li>15000 boundaries have also flown by </li>
+                
             </div>
+            <br />
+            <span v-on:click="onClickClose" class="close">close</span>
         </div>
     </div> 
 </div>
@@ -25,13 +27,12 @@
 
 <script>
 import chartData from '../chartdata.js';
-//import Chart from './Charts.vue';
+
 
 export default {
     data() {
         return {
            chartData : chartData[7]
-        //    id_array : [0, 1, 2, 3, 4]
         }
     },
     methods: {
@@ -40,14 +41,8 @@ export default {
 
             modal.style.display = "none";
         },
-        totalCompetetions () {
-            console.log("heee",this.id);
-            return this.id;
-        },
         
         createChart(chartId, chartData) {
-            console.log("id: ", chartId);
-            console.log("data: ", chartData);
             const ctx = document.getElementById(chartId);
             const myChart = new Chart(ctx, {
                 type: chartData.type,
